@@ -362,10 +362,766 @@
     ];
 
     let estudiantes = JSON.parse(localStorage.getItem("estudiantes")) || [
-      { nombre: "BECCAR GOMEZ ANDRICK THOMAS", curso: "2B", instrumento: "TAMBOR", abril: "Hermanito", mayo: "Hermanito", junio: "Hermanito", julio: "Hermanito", agosto: "Hermanito", septiembre: "Hermanito" },
-      { nombre: "GUTIERREZ RUIZ LUCAS SANTINO", curso: "3B", instrumento: "TAMBOR", abril: "25", mayo: "25", junio: "25", julio: "25", agosto: "25", septiembre: "25" },
-      { nombre: "CARTAGENA ROCHA SANTIAGO AMILKAR", curso: "4B", instrumento: "ATABAL", abril: "-", mayo: "-", junio: "25", julio: "25", agosto: "25", septiembre: "25" }
-    ];
+  {
+    "nombre": "BECCAR GOMEZ ANDRICK THOMAS",
+    "curso": "2B",
+    "instrumento": "TAMBOR",
+    "abril": "Hermanito",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "GUTIERREZ RUIZ LUCAS SANTINO",
+    "curso": "3B",
+    "instrumento": "TAMBOR",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "MERIDA SILES JHOJAN NAHUEL",
+    "curso": "3B",
+    "instrumento": "TAMBOR",
+    "abril": "Hermanito",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "MERIDA JIMENEZ BRANDON SANTIAGO",
+    "curso": "4A",
+    "instrumento": "TAMBOR",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "SUAREZ DIAZ GAEL ADRIAN",
+    "curso": "4A",
+    "instrumento": "ATABAL",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "CARTAGENA ROCHA SANTIAGO AMILKAR",
+    "curso": "4B",
+    "instrumento": "ATABAL",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "CASPA USTARIZ MATIAS ADRIEL",
+    "curso": "4B",
+    "instrumento": "BOMBO",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "FERNANDEZ BALANZA THIAGO ANDRE",
+    "curso": "5A",
+    "instrumento": "ATABAL",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "VASQUEZ HUARACHI ADELE VALENTINA",
+    "curso": "5A",
+    "instrumento": "TAMBOR",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "AYALA QUIROZ JHORDAN ESTIBEN",
+    "curso": "5B",
+    "instrumento": "TAMBOR",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "CLAPEZ BALANZA SOFIA VALENTINA",
+    "curso": "5B",
+    "instrumento": "ATABAL",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "CUSICANQUI CUEVAS JOSEPH JEREMY",
+    "curso": "5B",
+    "instrumento": "TAMBOR",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "FLORES GUZMAN RAUL JESSER",
+    "curso": "5B",
+    "instrumento": "PLATILLOS",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "QUISPE ROJAS IAN MATIAS",
+    "curso": "5B",
+    "instrumento": "GUARIPOLERO",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "URQUIZA MEJIA LUCAS SANTIAGO",
+    "curso": "5B",
+    "instrumento": "GUARIPOLERO",
+    "abril": "",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "CAMPOS CAHUANA RENE ERNESTO",
+    "curso": "6A",
+    "instrumento": "TAMBOR",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "GALARZA FERNANDEZ DANIEL",
+    "curso": "6A",
+    "instrumento": "CUADRATON",
+    "abril": "",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "JORGE RUIZ SAMUEL",
+    "curso": "6A",
+    "instrumento": "TAMBOR",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "LOZA MORALES CARLOS GABRIEL",
+    "curso": "6A",
+    "instrumento": "CUADRATON",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "MERIDA SILES ALEXANDER GAE",
+    "curso": "6A",
+    "instrumento": "TAMBOR",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "SOTO LUNARIO VALERY SAMANTA",
+    "curso": "1B",
+    "instrumento": "LIRA",
+    "abril": "Hermanito",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "CONDO LAFUENTE CARLA ALEJANDRA",
+    "curso": "2A",
+    "instrumento": "LIRA",
+    "abril": "Hermanito",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "LIMACHI AMBROCIO NADIA JHAQUELIN",
+    "curso": "3A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "LOZA MORALES AYLIN",
+    "curso": "3A",
+    "instrumento": "LIRA",
+    "abril": "Hermanito",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "MELGAREJO AGUIRRE ANTONELLA ZOE",
+    "curso": "3B",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "BECCAR GOMEZ ALENA MARGARITA",
+    "curso": "4A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "BUTRON VARGAS BRIANNA JHURIEL",
+    "curso": "4A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "CARPIO PADILLA ZOE ABIMELETH",
+    "curso": "4A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": "25"
+  },
+  {
+    "nombre": "GARCIA COLQUE ANTONELLA ESTRELLA",
+    "curso": "4A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "MEDRANO AGUILAR ARIADNA ALEJANDRA",
+    "curso": "4A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "LOPEZ FELIPEZ ISABELLA SABRINA",
+    "curso": "4B",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "MERCADO GOMEZ MEGAN YARIANA",
+    "curso": "4B",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "Espinoza Martínez Valentina N.",
+    "curso": "5A",
+    "instrumento": "LIRA",
+    "abril": "",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "GARCIA ALAVI ARELIZ NARELLA",
+    "curso": "5A",
+    "instrumento": "LIRA",
+    "abril": "",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "GUTIERREZ CHOQUEVILLCA ABIGAIL E.",
+    "curso": "5A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "PINTO MITA KENIA ARELIZ",
+    "curso": "5A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "QUIROGA CORTEZ STEPHANYE NICOLE",
+    "curso": "5A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "MAMANI DIAZ GABRIELA GISEL",
+    "curso": "5B",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "BUSTAMANTE CABRERA LUCIANA G.",
+    "curso": "6A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "GONZALES MANRRIQUE ANA VALENTINA",
+    "curso": "6A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "OMONTE MAMANI BRITANI AYLIN",
+    "curso": "6A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "OPORTO CARRILLO JADE JACKELINE",
+    "curso": "6A",
+    "instrumento": "LIRA",
+    "abril": "",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "PADILLA SANCHEZ ASHLEY NICOL",
+    "curso": "6A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "SOTO LUNARIO MAYTE NICOLE",
+    "curso": "6A",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "FUENTES SALAZAR GHINA CAMILA",
+    "curso": "6B",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "LOPEZ ROJAS CRISTEL JULIA",
+    "curso": "6B",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "PADILLA COCA KATERINE SHEYLA",
+    "curso": "6B",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "COLQUE MONTAÑO ANDRES SEBASTIAN",
+    "curso": "3A",
+    "instrumento": "TROMPETA",
+    "abril": "Hermanito",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "GONZALES MANRRIQUE GADIEL ALEX",
+    "curso": "3A",
+    "instrumento": "TROMPETA",
+    "abril": "Hermanito",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "FUENTES GALLEGO SANTIAGO IKENI",
+    "curso": "3B",
+    "instrumento": "TROMPETA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "FLORES BRAVO JHEFERSON MATEO",
+    "curso": "4A",
+    "instrumento": "BARÍTONO",
+    "abril": "25",
+    "mayo": "",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "LOZADA CUEVAS JOSHUA GERARDO",
+    "curso": "4A",
+    "instrumento": "TROMPETA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "QUISPE ZOTAR BENJAMIN",
+    "curso": "4B",
+    "instrumento": "TROMPETA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "COLQUE MONTAÑO JOHAVI JOSE",
+    "curso": "5B",
+    "instrumento": "BARÍTONO",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "CONDO LAFUENTE PEDRO LEONARDO",
+    "curso": "5B",
+    "instrumento": "TROMPETA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "BLANCO HEREDIA NICOLAS YAIR",
+    "curso": "6A",
+    "instrumento": "TROMPETA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "25",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "ALCOCER VILLARROEL EMMANUEL",
+    "curso": "3A",
+    "instrumento": "TROMPETA",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "UVINA JIMENEZ CRISTIAN",
+    "curso": "4A",
+    "instrumento": "TROMPETA",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "25",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "Beltrán Montaño Jhajaira B.",
+    "curso": "5A",
+    "instrumento": "BANDEROLAS",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "-",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "Huanca Rocha Aneth",
+    "curso": "5A",
+    "instrumento": "BANDEROLAS",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "-",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "Ticona Cuellar Madelin N.",
+    "curso": "5A",
+    "instrumento": "BANDEROLAS",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "-",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "Suárez Díaz Lia A.",
+    "curso": "5B",
+    "instrumento": "BANDEROLAS",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "-",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": ""
+  },
+  {
+    "nombre": "Moya Pinto Violeta C.",
+    "curso": "6A",
+    "instrumento": "BANDEROLAS",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "-",
+    "julio": "25",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "Carpio Padilla Amanda M.",
+    "curso": "6B",
+    "instrumento": "BANDEROLAS",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "-",
+    "julio": "25",
+    "agosto": "25",
+    "septiembre": "25"
+  },
+  {
+    "nombre": "Camacho Claros Nicol A.",
+    "curso": "6B",
+    "instrumento": "BANDEROLAS",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "-",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "Vedia Jorge Oriana",
+    "curso": "6B",
+    "instrumento": "BANDEROLAS",
+    "abril": "-",
+    "mayo": "-",
+    "junio": "-",
+    "julio": "",
+    "agosto": "",
+    "septiembre": ""
+  },
+  {
+    "nombre": "Lopez Vargas Ainhoa Evangeline",
+    "curso": "4B",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "25",
+    "junio": "-",
+    "julio": "-",
+    "agosto": "-",
+    "septiembre": "-"
+  },
+  {
+    "nombre": "Padilla Mariscal Nicole Gabriela",
+    "curso": "4B",
+    "instrumento": "LIRA",
+    "abril": "25",
+    "mayo": "-",
+    "junio": "-",
+    "julio": "-",
+    "agosto": "-",
+    "septiembre": "-"
+  },
+  {
+    "nombre": "Moron Omente Sebastian Alfredo",
+    "curso": "6A",
+    "instrumento": "TROMPETA",
+    "abril": "25",
+    "mayo": "-",
+    "junio": "-",
+    "julio": "-",
+    "agosto": "-",
+    "septiembre": "-"
+  }
+];
 
     estudiantes.forEach(est => {
       meses.forEach(mes => {
@@ -659,4 +1415,5 @@
     }
   </script>
 </body>
+
 </html>
