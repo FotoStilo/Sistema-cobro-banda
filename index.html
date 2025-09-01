@@ -36,6 +36,58 @@
       max-width: 100%;
       margin: 0 auto;
     }
+    .stats {
+      background-color: #fff0f3;
+      border: 1px solid #d46f82;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      font-size: 0.95em;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .stats h3 {
+      margin-top: 0;
+      color: #800020;
+      text-align: center;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .stat-item {
+      padding: 8px;
+      background-color: #fce4ec;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .stat-label {
+      font-weight: bold;
+      color: #555;
+    }
+    .stat-value {
+      font-size: 1.2em;
+      color: #800020;
+    }
+    .progress-container {
+      margin: 15px 0;
+      padding: 10px;
+      background-color: #ffebee;
+      border-radius: 6px;
+    }
+    .progress-bar {
+      height: 20px;
+      background-color: #43a047;
+      border-radius: 10px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 0.9em;
+      line-height: 20px;
+      transition: width 0.4s;
+    }
+
     .controls {
       margin-bottom: 15px;
       display: flex;
@@ -72,7 +124,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 10px;
+      margin-top: 15px;
       font-size: 0.95em;
       display: block;
       overflow-x: auto;
@@ -246,13 +298,39 @@
   <div class="container">
     <h1>Sistema de Cobro - Banda Escolar "Padre Rafael Arnaiz" 2025</h1>
 
+    <!-- Panel de estadísticas -->
+    <div class="stats">
+      <h3>📊 Resumen General</h3>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-label">Total Integrantes</div>
+          <div class="stat-value" id="total-integrantes">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Hermanitos</div>
+          <div class="stat-value" id="total-hermanitos">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Esperado (Bs)</div>
+          <div class="stat-value" id="total-esperado">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Recaudado (Bs)</div>
+          <div class="stat-value" id="total-recaudado">0</div>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar">0% completado</div>
+      </div>
+    </div>
+
     <!-- Filtros y controles -->
     <div class="controls">
       <button id="add-btn" title="Agregar"><i>➕</i><span>Agregar</span></button>
       <button id="report-global-btn" title="Informe"><i>📊</i><span>Informe</span></button>
       <button id="backup-btn" title="Respaldar"><i>💾</i><span>Respaldar</span></button>
       <button id="restore-btn" title="Restaurar"><i>📂</i><span>Restaurar</span></button>
-      <button id="whatsapp-btn" title="WhatsApp"><i>📤</i><span>WhatsApp</span></button>
+      <button id="whatsapp-btn" title="WhatsApp"><i>📤</i><span>Informe WhatsApp</span></button>
       <select id="filter-curso">
         <option value="">Curso</option>
         <option>1B</option><option>2A</option><option>2B</option>
@@ -282,6 +360,7 @@
     <table id="payment-table">
       <thead>
         <tr>
+          <th>#</th>
           <th></th>
           <th>Nombre</th>
           <th>Curso</th>
@@ -297,7 +376,7 @@
       <tbody id="table-body"></tbody>
     </table>
 
-    <!-- Modal de edición y reporte -->
+    <!-- Modal de edición -->
     <div class="modal" id="modal">
       <div class="modal-content">
         <div class="modal-header">
@@ -355,6 +434,7 @@
   <script>
     const meses = ["abril", "mayo", "junio", "julio", "agosto", "septiembre"];
     const montoMensual = 25;
+    const totalMeses = 6;
 
     const instrumentos = [
       "TAMBOR", "ATABAL", "BOMBO", "CUADRATON", "LIRA",
@@ -1121,7 +1201,7 @@
     "agosto": "-",
     "septiembre": "-"
   }
-];
+] ;
 
     estudiantes.forEach(est => {
       meses.forEach(mes => {
@@ -1129,6 +1209,7 @@
       });
     });
 
+    // Elementos del DOM
     const tableBody = document.getElementById("table-body");
     const searchInput = document.getElementById("search-input");
     const filterCurso = document.getElementById("filter-curso");
@@ -1157,6 +1238,13 @@
     const reportTableBody = document.getElementById("report-table").querySelector("tbody");
     const totalGeneral = document.getElementById("total-general");
 
+    // Estadísticas
+    const totalIntegrantes = document.getElementById("total-integrantes");
+    const totalHermanitos = document.getElementById("total-hermanitos");
+    const totalEsperado = document.getElementById("total-esperado");
+    const totalRecaudado = document.getElementById("total-recaudado");
+    const progressBar = document.getElementById("progress-bar");
+
     // Llenar select de instrumentos
     instrumentos.forEach(inst => {
       const opt = document.createElement("option");
@@ -1167,6 +1255,7 @@
 
     function saveData() {
       localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
+      updateStats();
     }
 
     function isHermanito(val) {
@@ -1197,6 +1286,7 @@
         });
 
         row.innerHTML = `
+          <td><strong>${visualIndex + 1}</strong></td>
           <td><button class="report-btn" onclick="openModal(${realIndex})">📋</button></td>
           <td class="nombre-cell">${estudiante.nombre}</td>
           <td>${estudiante.curso}</td>
@@ -1234,7 +1324,6 @@
       modal.style.display = "block";
     }
 
-    // Cerrar modales
     [closeModal, modalCancel, modal].forEach(el => {
       if (el === modal) {
         el.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
@@ -1246,7 +1335,6 @@
     closeReportGlobal.onclick = () => reportGlobalModal.style.display = "none";
     reportGlobalModal.onclick = e => { if (e.target === reportGlobalModal) reportGlobalModal.style.display = "none"; };
 
-    // Guardar cambios
     modalSave.addEventListener("click", () => {
       const realIndex = parseInt(modalIndex.value);
       if (realIndex < 0 || realIndex >= estudiantes.length) return;
@@ -1268,7 +1356,6 @@
       modal.style.display = "none";
     });
 
-    // Eliminar
     modalDelete.addEventListener("click", () => {
       const realIndex = parseInt(modalIndex.value);
       if (realIndex < 0 || realIndex >= estudiantes.length) return;
@@ -1280,7 +1367,6 @@
       }
     });
 
-    // Filtros
     function applyFilters() {
       const curso = filterCurso.value;
       const instrumento = filterInstrumento.value;
@@ -1296,7 +1382,6 @@
     filterCurso.addEventListener("change", () => renderTable(applyFilters()));
     filterInstrumento.addEventListener("change", () => renderTable(applyFilters()));
 
-    // Agregar
     addBtn.addEventListener("click", () => {
       const nombre = prompt("Nombre:");
       if (!nombre) return;
@@ -1313,7 +1398,6 @@
       renderTable(applyFilters());
     });
 
-    // Informe detallado
     reportGlobalBtn.addEventListener("click", () => {
       reportTableBody.innerHTML = "";
       let totalGeneralBs = 0;
@@ -1342,7 +1426,6 @@
       reportGlobalModal.style.display = "block";
     });
 
-    // Respaldar
     backupBtn.addEventListener("click", () => {
       const dataStr = JSON.stringify(estudiantes, null, 2);
       const blob = new Blob([dataStr], { type: "application/json" });
@@ -1359,7 +1442,6 @@
       alert("✅ Respaldo descargado.");
     });
 
-    // Restaurar
     restoreBtn.addEventListener("click", () => {
       restoreFile.onchange = function(e) {
         const file = e.target.files[0];
@@ -1392,18 +1474,86 @@
       restoreFile.click();
     });
 
-    // WhatsApp
+    // --- 📲 ENVIAR INFORME DETALLADO POR WHATSAPP ---
     whatsappBtn.addEventListener("click", () => {
+      const stats = calcularEstadisticas();
+      const detalleMeses = meses.map(mes => {
+        const pagados = stats.pagosPorMes[mes];
+        return `${mes.slice(0,3).toUpperCase()}: ${pagados} pagados`;
+      }).join('\n');
+
+      const mensaje = encodeURIComponent(
+        `*INFORME DE COBROS - BANDA ESCOLAR 2025*\n\n` +
+        `📅 Integrantes totales: *${stats.total}*\n` +
+        `👨‍👦 Hermanitos: *${stats.hermanitos}*\n` +
+        `🚫 Exonerados: *${stats.exonerados}*\n\n` +
+        `💰 Total Esperado: *${stats.esperado} Bs*\n` +
+        `✅ Recaudado: *${stats.recaudado} Bs*\n` +
+        `📊 Avance: *${stats.porcentaje}%*\n\n` +
+        `📌 *Detalle por mes:*\n${detalleMeses}\n\n` +
+        `Gracias por tu gestión 💼`
+      );
+
       const telefono = "59168450136";
-      const mensaje = encodeURIComponent("Hola, aquí está el respaldo del sistema de cobro de la Banda Escolar.");
       const whatsappUrl = `https://wa.me/${telefono}?text=${mensaje}`;
-      if (confirm("Se abrirá WhatsApp. ¿Continuar?")) {
-        setTimeout(() => window.open(whatsappUrl, '_blank'), 500);
-      }
+      window.open(whatsappUrl, '_blank');
     });
+
+    function calcularEstadisticas() {
+      const total = estudiantes.length;
+      const hermanitos = estudiantes.filter(e => meses.some(mes => isHermanito(e[mes]))).length;
+      const integrantesAPagar = total - hermanitos;
+
+      let esperado = integrantesAPagar * totalMeses * montoMensual;
+      let exonerados = 0;
+      let recaudado = 0;
+
+      const pagosPorMes = {};
+
+      meses.forEach(mes => {
+        pagosPorMes[mes] = 0;
+        estudiantes.forEach(est => {
+          const val = est[mes];
+          if (val === "-") {
+            exonerados++;
+            esperado -= montoMensual;
+          } else if (val === "25") {
+            recaudado += montoMensual;
+            pagosPorMes[mes]++;
+          }
+        });
+      });
+
+      const porcentaje = esperado > 0 ? Math.round((recaudado / esperado) * 100) : 0;
+
+      return {
+        total,
+        hermanitos,
+        exonerados,
+        esperado,
+        recaudado,
+        porcentaje,
+        pagosPorMes
+      };
+    }
+
+    // --- NUEVAS FUNCIONES: ESTADÍSTICAS ---
+    function updateStats() {
+      const stats = calcularEstadisticas();
+
+      totalIntegrantes.textContent = stats.total;
+      totalHermanitos.textContent = stats.hermanitos;
+      totalEsperado.textContent = `${stats.esperado} Bs`;
+      totalRecaudado.textContent = `${stats.recaudado} Bs`;
+
+      progressBar.style.width = `${stats.porcentaje}%`;
+      progressBar.textContent = `${stats.porcentaje}% completado`;
+      progressBar.style.backgroundColor = stats.porcentaje === 100 ? '#43a047' : '#fb8c00';
+    }
 
     // Inicializar
     renderTable();
+    updateStats();
 
     // Service Worker
     if ('serviceWorker' in navigator) {
@@ -1415,5 +1565,4 @@
     }
   </script>
 </body>
-
 </html>
